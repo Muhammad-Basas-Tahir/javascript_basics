@@ -58,6 +58,20 @@ loginButton.addEventListener("click", () => {
     }
 })
 
+// button that can control visibility of a paragraph
+const ctrlpara = document.getElementById("ctrlpara")
+const para = document.getElementById("invisible")
+
+ctrlpara.addEventListener("click", () => {
+    if(ctrlpara.textContent.includes("Hide Content")){
+        ctrlpara.textContent = "Show Content"
+        para.textContent = ""
+    }else {
+        ctrlpara.textContent = "Hide Content"
+        para.textContent = "this paragraph is being shown"
+    }
+})
+
 
 
 
