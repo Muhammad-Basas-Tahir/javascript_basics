@@ -36,12 +36,46 @@ function updateTheme(){
 
 
 }    
-// text
+// text change text
 const title = document.getElementById("title");
 title.textContent = "world";
 title.style.color = "blue";
 
-title.addEventListener("dblclick", () => {title.textContent = "boom"})
-// title.addEventListener("mouseout", () => {title.textContent = "world"})
+title.addEventListener("mouseover", () => {title.textContent = "boom"})
+title.addEventListener("mouseout", () => {title.textContent = "world"})
+
+// login/logout button
+const loginButton = document.getElementById("login");
+const buttonStatus = document.getElementById("status");
+
+loginButton.addEventListener("click", () => {
+    if (loginButton.textContent === "login"){
+        loginButton.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i>logout'
+    }else {
+        loginButton.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>login'
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
