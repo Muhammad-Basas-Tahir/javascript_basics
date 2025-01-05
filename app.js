@@ -51,8 +51,10 @@ const buttonStatus = document.getElementById("status");
 loginButton.addEventListener("click", () => {
     if (loginButton.textContent === "login"){
         loginButton.innerHTML = '<i class="fa-solid fa-right-from-bracket"></i>logout'
+        buttonStatus.innerHTML = "you are logged in"
     }else {
         loginButton.innerHTML = '<i class="fa-solid fa-right-to-bracket"></i>login'
+        buttonStatus.innerHTML = "you are logged out"
     }
 })
 
