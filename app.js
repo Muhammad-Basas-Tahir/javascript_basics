@@ -1,3 +1,4 @@
+// Button1
 const btn = document.querySelector("#Button1");
 const txt = document.querySelector("#Para1");
 
@@ -14,25 +15,33 @@ function updateBtn(){
 }
 
 
-
+// Button2
 const btn2 = document.querySelector("#Button2");
 const txt2 = document.querySelector("#Para2");
 
 btn2.addEventListener("click", updateTheme);
-
 function updateTheme(){
     if(btn2.textContent === "Dark Mode"){
         btn2.textContent = "Light Mode";
-        txt2.textContent = "Theme is Light";    
+        txt2.textContent = "Theme is Light";  
+        btn2.style.backgroundColor = "#AB9999"
+        txt2.style.color = "#AB9999"
     }   else {
         btn2.textContent = "Dark Mode";
         txt2.textContent = "Theme Is Dark";
-    }
-}    
+        btn2.style.backgroundColor = "black"
+        txt2.style.color = "#3E2424"
 
+    }
+
+
+}    
+// text
 const title = document.getElementById("title");
 title.textContent = "world";
 title.style.color = "blue";
 
 title.addEventListener("dblclick", () => {title.textContent = "boom"})
 // title.addEventListener("mouseout", () => {title.textContent = "world"})
+
+
