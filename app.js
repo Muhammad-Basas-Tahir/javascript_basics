@@ -72,7 +72,15 @@ ctrlpara.addEventListener("click", () => {
     }
 })
 
+const buttonGreeting = document.querySelector("#concatenate")
 
+buttonGreeting.addEventListener("click", () => {
+    const name = prompt("what is your name")
+    const greeting = document.querySelector("#greeting")
+    greeting.textContent = `hello my name is ${name}`
+
+    
+})
 
 
 
