@@ -30,5 +30,9 @@ function updateTheme(){
     }
 }    
 
-const title = document.getElementById("title")
-title.textContent = "world"
+const title = document.getElementById("title");
+title.textContent = "world";
+title.style.color = "blue";
+
+title.addEventListener("dblclick", () => {title.textContent = "boom"})
+// title.addEventListener("mouseout", () => {title.textContent = "world"})
