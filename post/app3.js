@@ -41,3 +41,15 @@ function promptUser() {
 
 // Start the input prompt
 promptUser();
+
+
+//a app that prompts for age input and outputs a message
+// const { stdin, stdout } = require("process")
+// const readline = require("readline")
+
+// const rl = readline.createInterface({
+//   input: stdin,
+//   output: stdout,
+  
+// })
+// rl.question("plz enter your age", (age) => {console.log(`you are ${age} years old.`);})
