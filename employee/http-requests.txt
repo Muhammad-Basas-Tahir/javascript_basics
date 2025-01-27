@@ -1,0 +1,52 @@
+// Get Request
+
+fetch('http://localhost:3000/employees')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+
+// Post Request
+
+fetch('http://localhost:3000/employees', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ id: 4, name: 'Alice' }),
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+
+// Put Request
+
+fetch('http://localhost:3000/employees/2', {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ id: 2, name: 'Updated Name', role: 'Developer' }),
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+
+// Patch Request
+
+fetch('http://localhost:3000/employees/3', {
+  method: 'PATCH',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name: 'New Name' }),
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+
+// Delete Request
+
+fetch('http://localhost:3000/employees/1', {
+  method: 'DELETE',
+})
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));

@@ -4,9 +4,9 @@ const app = express();
 app.use(express.json());
 
 let employees = [
-    { id: 1, name: 'basas' },
-    { id: 2, name: 'ahmed' },
-    { id: 3, name: 'taimen' },
+    { id: 1, name: 'basas', role:"designer" },
+    { id: 2, name: 'ahmed', role:"developer" },
+    { id: 3, name: 'taimen', role:"manager" },
 ];
 
 // GET route to fetch all employees
@@ -25,6 +25,8 @@ app.post('/employees',(req,res) => {
     employees.push(newEmployee)
     res.json(newEmployee)//responding with newEmployee
 })
+
+// Put Route:
 app.put('/employees/:id', (req, res) => {
     const { id } = req.params; // Extract the id from the URL
     const updatedEmployee = req.body; // Get the updated data from the body
@@ -43,11 +45,45 @@ app.put('/employees/:id', (req, res) => {
     }
 
     // Update the employee's data while keeping the existing properties
-    employees[employeeIndex] = { ...employees[employeeIndex], ...updatedEmployee };
+    employees[employeeIndex] = updatedEmployee;
 
     // Return the updated employee
     res.status(200).json(employees[employeeIndex]);
 });
+
+// Patch Route:
+app.patch('/employees/:id',(req,res) => {
+    const {id} = req.params;
+    const updatedFields = req.body;
+
+    const employeeIndex = employees.findIndex(emp => emp.id == id);
+
+    if(employeeIndex === -1){
+        return res.status(404).json({Error:'employee not found'});
+    }
+
+    employees[employeeIndex] = {...employees[employeeIndex],...updatedFields}
+
+    res.status(200).json(employees[employeeIndex])
+})
+
+// Delete route:
+app.delete('/employees/:id',(req,res) => {
+    const {id} = req.params; // takes the endpoint id to delete
+
+    const employeeIndex = employees.findIndex(emp => emp.id == id);
+
+    if(employeeIndex === -1){
+        return res.status(404).json({Error:'employee not found'});
+    }
+
+    const deletedEmployee = employees.splice(employeeIndex,1)
+
+    res.status(200).json({
+        message:"employee deleted successfully",
+        deletedEmployee:deletedEmployee[0]
+    })
+})
 
 // Start the server
 app.listen(PORT, () => {
